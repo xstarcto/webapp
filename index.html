@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body ng-app="firstapp">
+<div>
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <h1> Hello , {{yourName}}</h1>
+    <h2> This is defined from {{ name }}</h2>
+    <div ng-controller="controller1">
+        <br/>
+        <h1> this will show value {{ person.name }}</h1>
+        <h3>DateTime {{person.time}}</h3>
+    </div>
+    <h1> this will show value {{ person.name2 }}</h1>
+</div>
+
+<!--test the inheritance feature-->
+<div ng-controller="ParentController">
+    <h1>the parent's quality is {{ person.quality }}</h1>
+    <div ng-controller="ChildController">
+        <h1>the child's quality is {{ person.quality }}</h1>
+        <button ng-click="sayHello()">SayHello</button>
+    </div>
+</div>
+
+<div ng-controller="PlayerController">
+    <button ng-click="play()" class="button" ng-show="!playing">Play</button>
+    <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
+    Playing audio : <b>{{ playing }}</b>
+</div>
+<br>
+<br>
+<audio src="rsc/audio/Distance.mp3" controls="controls">
+</audio>
+</body>
+
+</html>
